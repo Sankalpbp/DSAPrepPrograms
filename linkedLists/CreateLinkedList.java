@@ -6,20 +6,32 @@ public class CreateLinkedList {
 
     private static Node createLinkedList () {
         
-        Node head = null;
-        Node ptr = null;
-        int x = scanner.nextInt ();
+        System.out.print ( "Enter the value to put in the head node: " );
+        int data = scanner.nextInt ();
+        Node head = new Node ( data );
+        Node newNode = null;
 
-        do {
-            if (head == null) {
-                head = new Node (x);
-                ptr = head;
-            } else {
-                ptr.next = new Node (x);
-                ptr = ptr.next;
-            }
-            x = scanner.nextInt ();
-        } while ( x != -1 );
+        Node pointerToLastNode = head;
+
+        System.out.print ( "Do you want to continue ? (Y / N): " );
+        String toContinue = scanner.next ();
+
+        while ( toContinue.equals ("Y")   || 
+                toContinue.equals ("y")   || 
+                toContinue.equals ("yes") || 
+                toContinue.equals ("Yes") 
+              ) {
+
+            System.out.print ( "Enter the value to put in the new node: " );
+            data = scanner.nextInt ();
+            newNode = new Node ( data );
+            
+            pointerToLastNode.next = newNode;
+            pointerToLastNode = pointerToLastNode.next;
+            
+            System.out.print ( "Do you want to continue ? (Y / N): " );
+            toContinue = scanner.next ();
+        }
 
         return head;
     }
@@ -27,6 +39,7 @@ public class CreateLinkedList {
     private static void printLinkedList ( Node node ) {
         Node ptr = node;
 
+        System.out.print ( "Linked List created is: " );
         while (ptr != null) {
             System.out.print ( ptr.data );
             if (ptr != null && ptr.next != null) {
