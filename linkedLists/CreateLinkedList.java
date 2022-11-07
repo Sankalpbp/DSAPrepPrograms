@@ -4,6 +4,17 @@ public class CreateLinkedList {
 
     private static Scanner scanner = new Scanner (System.in);
 
+    private static boolean askUserToContinue () {
+
+        System.out.print ( "Do you want to continue ? (Y / N): " );
+        String toContinue = scanner.next ();
+
+        return toContinue.equals ("Y")   ||
+               toContinue.equals ("y")   || 
+               toContinue.equals ("yes") || 
+               toContinue.equals ("Yes");
+    }
+
     private static Node createLinkedList () {
         
         System.out.print ( "Enter the value to put in the head node: " );
@@ -13,14 +24,7 @@ public class CreateLinkedList {
 
         Node pointerToLastNode = head;
 
-        System.out.print ( "Do you want to continue ? (Y / N): " );
-        String toContinue = scanner.next ();
-
-        while ( toContinue.equals ("Y")   || 
-                toContinue.equals ("y")   || 
-                toContinue.equals ("yes") || 
-                toContinue.equals ("Yes") 
-              ) {
+        while ( askUserToContinue () ) {
 
             System.out.print ( "Enter the value to put in the new node: " );
             data = scanner.nextInt ();
@@ -28,9 +32,6 @@ public class CreateLinkedList {
             
             pointerToLastNode.next = newNode;
             pointerToLastNode = pointerToLastNode.next;
-            
-            System.out.print ( "Do you want to continue ? (Y / N): " );
-            toContinue = scanner.next ();
         }
 
         return head;
