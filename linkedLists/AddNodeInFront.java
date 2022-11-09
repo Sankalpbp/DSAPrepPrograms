@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class AddNodeInFront {
 
-    public static Node addNode ( Node head, int data ) {
+    public static Node addNodeInFront ( Node head, int data ) {
         Node newHead = new Node ( data , head );
         head = newHead;
 
@@ -29,7 +29,7 @@ public class AddNodeInFront {
 
         System.out.println ( "Enter the element you want to insert in front of the list: " );
         int x = ( new Scanner ( System.in ) ).nextInt ();
-        ll = addNode ( ll, x );
+        ll = addNodeInFront ( ll, x );
         printList ( ll );
     }
 }
