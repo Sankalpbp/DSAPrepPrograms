@@ -50,9 +50,23 @@ public class CreateLinkedList {
         }
         System.out.println ();
     }
+    
+    private static int length ( Node head ) {
+        Node ptr = head;
+        int len = 0;
+
+        while ( ptr != null ) {
+            ++len;
+            ptr = ptr.next;
+        }
+
+        return len;
+    }
 
     public static void main ( String... args ) {
         Node l1 = createLinkedList ();
         printLinkedList ( l1 );
+
+        System.out.println ( "Lenght of the list: " + length ( l1 ) );
     }
 }
