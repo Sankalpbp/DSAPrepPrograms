@@ -15,7 +15,7 @@ public class CreateLinkedList {
                toContinue.equals ("Yes");
     }
 
-    private static Node createLinkedList () {
+    public static Node createLinkedList () {
         
         System.out.print ( "Enter the value to put in the head node: " );
         int data = scanner.nextInt ();
