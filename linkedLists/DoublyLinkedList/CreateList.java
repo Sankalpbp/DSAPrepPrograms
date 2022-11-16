@@ -35,7 +35,7 @@ public class CreateList {
         return head;
     }
 
-    private static void printList ( Node head ) {
+    public static void printList ( Node head ) {
         Node ptr = head;
 
         while ( ptr != null ) {
