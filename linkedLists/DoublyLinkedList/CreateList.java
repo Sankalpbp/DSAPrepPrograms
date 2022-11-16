@@ -35,6 +35,31 @@ public class CreateList {
         return head;
     }
 
+    public static void printListReverse ( Node head ) {
+        Node ptr = head;
+        Node lastNodePtr = null;
+
+        while ( ptr != null && ptr.next != null ) {
+            ptr = ptr.next;
+        }
+
+        if ( ptr != null ) {
+            lastNodePtr = ptr;
+        } 
+
+        while ( lastNodePtr != null ) {
+            System.out.print ( lastNodePtr.data );
+           
+            if ( lastNodePtr.previous != null ) {
+                System.out.print ( " <-> " );
+            }
+
+            lastNodePtr = lastNodePtr.previous;
+        }
+
+        System.out.println ();
+    }
+
     public static void printList ( Node head ) {
         Node ptr = head;
 
@@ -54,5 +79,6 @@ public class CreateList {
 
         Node head = createList ();
         printList ( head );
+        printListReverse ( head );
     }
 }

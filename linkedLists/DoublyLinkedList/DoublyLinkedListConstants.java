@@ -1,6 +1,4 @@
-package linkedLists;
-
-public interface LinkedListConstants {
+public interface DoublyLinkedListConstants {
 
     public static final String DATA_PROMPT_FOR_NEW_NODE = "Enter the data for the new Node: ";
     public static final String DATA_PROMPT_FOR_HEAD_NODE = "Enter the data to be put in the head node: ";
