@@ -40,9 +40,7 @@ public class CreateList {
 
         while ( ptr.next != head ) {
             System.out.print ( ptr.data );
-            if ( ptr.next != head ) {
-                System.out.print ( " -> " );
-            }
+            System.out.print ( " -> " );
             ptr = ptr.next;
         }
 
