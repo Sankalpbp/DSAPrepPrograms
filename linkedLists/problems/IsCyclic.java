@@ -1,4 +1,37 @@
+import java.util.Set;
+import java.util.HashSet;
+
 public class IsCyclic {
+
+    public static boolean isCyclicUsingHashing ( SimpleNode head ) {
+        Set<SimpleNode> nodes = new HashSet<SimpleNode> ();
+        SimpleNode ptr = head;
+
+        while ( ptr != null && nodes.contains ( ptr ) == false ) {
+            nodes.add ( ptr );
+            ptr = ptr.next;
+        }
+
+        return ptr != null;
+    }
+
+    public static boolean isCyclicUsingFloydCycle ( SimpleNode head ) {
+        SimpleNode tortoise = head;
+        SimpleNode hare = head;
+
+        while ( tortoise != null && 
+                hare != null && 
+                hare.next != null ) {
+            tortoise = tortoise.next;
+            hare = hare.next.next;
+
+            if ( tortoise == hare ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     public static int getCount ( SimpleNode head ) {
         SimpleNode ptr = head;
@@ -74,6 +107,7 @@ public class IsCyclic {
 
         ll = makeCyclic ( ll );
 
-        System.out.println ( isCycle ( ll ) );
+        System.out.println ( isCyclicUsingHashing ( ll ) );
+        System.out.println ( isCyclicUsingFloydCycle ( ll ) );
     }
 }
