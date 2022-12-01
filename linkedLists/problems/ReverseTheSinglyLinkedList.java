@@ -9,6 +9,8 @@ public class ReverseTheSinglyLinkedList {
         SimpleNode headOfReversedListWithoutHead = reverseRecursive ( head.next );
         lastNodeOfReversedListWithoutHead.next = head;
 
+        head.next = null;
+
         return headOfReversedListWithoutHead;
     }
 
@@ -34,9 +36,13 @@ public class ReverseTheSinglyLinkedList {
     public static void main ( String... args ) {
         SimpleNode ll = CreateSinglyList.createLinkedList ();
         CreateSinglyList.printLinkedList ( ll );
-
         SimpleNode reversedList = reverse ( ll );
 
+        SimpleNode ll2 = CreateSinglyList.createLinkedList ();
+        CreateSinglyList.printLinkedList ( ll2 );
+        SimpleNode reversedRecursiveList = reverseRecursive ( ll2 );
+
         CreateSinglyList.printLinkedList ( reversedList );
+        CreateSinglyList.printLinkedList ( reversedRecursiveList );
     }
 }
